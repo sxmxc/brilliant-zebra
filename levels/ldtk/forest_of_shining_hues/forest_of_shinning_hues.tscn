@@ -1,0 +1,112 @@
+[gd_scene load_steps=13 format=3 uid="uid://y5ok2quonv0b"]
+
+[ext_resource type="PackedScene" uid="uid://60llwrcvlqnh" path="res://levels/ldtk/forest_of_shining_hues/ForestOfShinningHues.ldtk" id="1_de84c"]
+[ext_resource type="Script" path="res://levels/world.gd" id="2_7sq16"]
+[ext_resource type="Shader" path="res://shaders/grey_scale.gdshader" id="2_8eykq"]
+[ext_resource type="Texture2D" uid="uid://bgwbyeywjn3uu" path="res://levels/ldtk/forest_of_shining_hues/background/background-grad.png" id="3_1eevr"]
+[ext_resource type="Texture2D" uid="uid://b0qo6dikisc3t" path="res://levels/ldtk/forest_of_shining_hues/background/stars-1.png" id="4_xs1f1"]
+[ext_resource type="Texture2D" uid="uid://dinxkiymjumyw" path="res://levels/ldtk/forest_of_shining_hues/background/stars-2.png" id="5_777ph"]
+[ext_resource type="Texture2D" uid="uid://dhgj5pa5he0sh" path="res://levels/ldtk/forest_of_shining_hues/background/trees-far.png" id="6_kcets"]
+[ext_resource type="Texture2D" uid="uid://dg0oa53gr5yh0" path="res://levels/ldtk/forest_of_shining_hues/background/trees-mid.png" id="7_u87tr"]
+[ext_resource type="PackedScene" uid="uid://dluibvh0xsaq1" path="res://camera/level_camera.tscn" id="8_cd7lh"]
+[ext_resource type="PackedScene" uid="uid://wcbpo3fn37un" path="res://player/player.tscn" id="9_kgf15"]
+[ext_resource type="PackedScene" uid="uid://cgulyj0opm0hf" path="res://camera/master_camera.tscn" id="10_1uqrw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3jue"]
+shader = ExtResource("2_8eykq")
+shader_parameter/weighted = true
+
+[node name="ForestOfShinningHues" instance=ExtResource("1_de84c")]
+script = ExtResource("2_7sq16")
+
+[node name="Level_0" parent="." index="0"]
+material = SubResource("ShaderMaterial_q3jue")
+
+[node name="ParallaxBG" type="Node2D" parent="Level_0" index="0"]
+use_parent_material = true
+
+[node name="Background" type="Parallax2D" parent="Level_0/ParallaxBG" index="0"]
+use_parent_material = true
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(640, 0)
+screen_offset = Vector2(-365, -132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level_0/ParallaxBG/Background" index="0"]
+use_parent_material = true
+texture = ExtResource("3_1eevr")
+centered = false
+
+[node name="Stars" type="Parallax2D" parent="Level_0/ParallaxBG" index="1"]
+use_parent_material = true
+scroll_scale = Vector2(0.25, 0.25)
+repeat_size = Vector2(640, 0)
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level_0/ParallaxBG/Stars" index="0"]
+use_parent_material = true
+texture = ExtResource("4_xs1f1")
+centered = false
+
+[node name="Stars2" type="Parallax2D" parent="Level_0/ParallaxBG" index="2"]
+use_parent_material = true
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(640, 0)
+screen_offset = Vector2(-365, -132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level_0/ParallaxBG/Stars2" index="0"]
+use_parent_material = true
+texture = ExtResource("5_777ph")
+centered = false
+
+[node name="TreesFar" type="Parallax2D" parent="Level_0/ParallaxBG" index="3"]
+use_parent_material = true
+scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(640, 0)
+screen_offset = Vector2(-365, -132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level_0/ParallaxBG/TreesFar" index="0"]
+use_parent_material = true
+texture = ExtResource("6_kcets")
+centered = false
+
+[node name="TreesMid" type="Parallax2D" parent="Level_0/ParallaxBG" index="4"]
+use_parent_material = true
+repeat_size = Vector2(640, 0)
+screen_offset = Vector2(-365, -132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level_0/ParallaxBG/TreesMid" index="0"]
+use_parent_material = true
+texture = ExtResource("7_u87tr")
+centered = false
+
+[node name="IntGrid" parent="Level_0" index="1"]
+use_parent_material = true
+
+[node name="Details" parent="Level_0" index="3"]
+use_parent_material = true
+
+[node name="Traps" parent="Level_0" index="4"]
+use_parent_material = true
+
+[node name="LevelCamera" parent="Level_0" index="5" instance=ExtResource("8_cd7lh")]
+position = Vector2(320, 183)
+draw_limits = true
+limit_target = NodePath("../IntGrid")
+limit_margin = Vector4i(0, 0, 0, 8)
+
+[node name="LevelCamera" parent="Level_1" index="4" instance=ExtResource("8_cd7lh")]
+position = Vector2(320, 180)
+snap_to_pixel = false
+draw_limits = true
+limit_target = NodePath("../IntGrid")
+
+[node name="Player" parent="." index="2" instance=ExtResource("9_kgf15")]
+position = Vector2(44, 302)
+
+[node name="WorldCamera" parent="." index="3" instance=ExtResource("10_1uqrw")]
+position = Vector2(320, 183)
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 360
+editor_draw_limits = true

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1his5mhg3ylw"]
+
+[ext_resource type="Theme" uid="uid://dfg03umfptpp8" path="res://default.tres" id="1_n582l"]
+[ext_resource type="Script" path="res://core/game_manager/load_screen.gd" id="1_xfv7j"]
+
+[node name="LoadScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_n582l")
+script = ExtResource("1_xfv7j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0392157, 0.0941176, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -42.0
+offset_right = 79.0
+offset_bottom = -30.0
+grow_vertical = 0
+text = "Loading: x$"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 330.0
+offset_right = 268.0
+offset_bottom = 341.0
+step = 0.5
+allow_greater = true
+allow_lesser = true

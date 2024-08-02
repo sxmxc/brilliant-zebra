@@ -1,0 +1,40 @@
+~ intro
+
+: In the heart of the Trippy Dimension lies the planet Chromara, a world brimming with vibrant colors and harmonious balance. 
+Chromara is a land of endless beauty, where rivers of light flow through forests of kaleidoscopic trees, and mountains shimmer with every hue imaginable. 
+This harmony is maintained by the wise and benevolent Spectrum Sage, an ancient entity who channels the power of the colors to ensure peace and prosperity.
+
+: But this tranquility was not always so.[do balloon_down()] 
+[do action_fade_in()]Long ago, the Spectrum Sage created Chromara from the chaos of the Trippy Dimension, weaving together the threads of color to form a balanced and vibrant world. 
+However, in the depths of this creation, a fragment of that original chaos was left behind, unnoticed.
+
+: This fragment, a remnant of the primordial chaos, began to grow in power, feeding off the very harmony it sought to disrupt. 
+Over time, it evolved into Fragmentum, a rogue glitch born from the unintended consequences of creation. 
+Fragmentum's existence is fueled by a desire to undo the balance and return Chromara to a state of discord and entropy.
+
+: Hidden in the shadows, Fragmentum bided his time, gathering strength and waiting for the perfect moment to strike.
+=> END
+
+~ scene_1
+Spectrum Sage: Citizens of Chromara, gather close. 
+Today, we celebrate the harmony of our world, a unity of colors that keeps our dimension in balance.
+
+Fragmentum: Fools! 
+Your precious harmony is a lie! 
+I shall corrupt the Spectrum Sage and bring chaos to your world!
+
+Bit: I won't let you destroy our home, Fragmentum. 
+I will restore the Spectrum Sage and bring peace back to Chromara!
+
+Fragmentum: HAHAHAHAHAHAHA!
+
+Spectrum Sage: Bit, you are our last hope. 
+You seem to be immune to the corruption, and that gives you the strength to combat Fragmentum. 
+Seek out the fragments of my power scattered across Chromara. Restore them, and you will restore balance.
+
+=> END
+
+~ outro
+: And so, Bit's quest begins. 
+A journey through the vivid and treacherous landscapes of Chromara to gather the fragments of the Spectrum Sage's power, defeat Fragmentum, and restore harmony to the Trippy Dimension.
+=> END

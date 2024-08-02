@@ -1,0 +1,178 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmqmfdyn04mjr"]
+
+[ext_resource type="Theme" uid="uid://dfg03umfptpp8" path="res://default.tres" id="1_718yo"]
+[ext_resource type="Script" path="res://ui/Hud.gd" id="2_amc6o"]
+[ext_resource type="Texture2D" uid="uid://ctmg478tr6tqq" path="res://assets/8bitbutton-full.tres" id="3_l1888"]
+[ext_resource type="Texture2D" uid="uid://cwgemwpvtwwn2" path="res://assets/8bitbutton-empty.tres" id="4_pw5mp"]
+[ext_resource type="Texture2D" uid="uid://crtl6oxodp1y6" path="res://assets/8bitbutton.png" id="5_qlvct"]
+
+[sub_resource type="Gradient" id="Gradient_idyt4"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0627451, 0.0392157, 0.0941176, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g6eln"]
+gradient = SubResource("Gradient_idyt4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hljc8"]
+atlas = ExtResource("5_qlvct")
+region = Rect2(0, 0, 8, 8)
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Hud" type="TextureRect" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_718yo")
+texture = SubResource("GradientTexture1D_g6eln")
+script = ExtResource("2_amc6o")
+life_container_full = ExtResource("3_l1888")
+life_container_empty = ExtResource("4_pw5mp")
+
+[node name="HudContainer" type="HBoxContainer" parent="Hud"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_718yo")
+metadata/_edit_layout_mode = 1
+
+[node name="CurrencyContainer" type="VBoxContainer" parent="Hud/HudContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Label" type="Label" parent="Hud/HudContainer/CurrencyContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "-GOLD-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Hud/HudContainer/CurrencyContainer"]
+layout_mode = 2
+theme = ExtResource("1_718yo")
+theme_override_font_sizes/font_size = 6
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Hud/HudContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="Hud/HudContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_718yo")
+theme_override_font_sizes/font_size = 6
+text = "-Gold-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Hud/HudContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_718yo")
+theme_override_font_sizes/font_size = 6
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifeContainer" type="VBoxContainer" parent="Hud/HudContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="LifeLabel" type="Label" parent="Hud/HudContainer/LifeContainer"]
+layout_mode = 2
+theme = ExtResource("1_718yo")
+theme_override_font_sizes/font_size = 6
+text = "-LIFE-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifeIconContainer" type="HBoxContainer" parent="Hud/HudContainer/LifeContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Hud/HudContainer/LifeContainer/LifeIconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect2" type="TextureRect" parent="Hud/HudContainer/LifeContainer/LifeIconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect3" type="TextureRect" parent="Hud/HudContainer/LifeContainer/LifeIconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect4" type="TextureRect" parent="Hud/HudContainer/LifeContainer/LifeIconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect5" type="TextureRect" parent="Hud/HudContainer/LifeContainer/LifeIconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="BossLifeContainer" type="VBoxContainer" parent="Hud/HudContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Label" type="Label" parent="Hud/HudContainer/BossLifeContainer"]
+layout_mode = 2
+theme = ExtResource("1_718yo")
+theme_override_font_sizes/font_size = 6
+text = "-BOSS-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Hud/HudContainer/BossLifeContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Hud/HudContainer/BossLifeContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect2" type="TextureRect" parent="Hud/HudContainer/BossLifeContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect3" type="TextureRect" parent="Hud/HudContainer/BossLifeContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect4" type="TextureRect" parent="Hud/HudContainer/BossLifeContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect5" type="TextureRect" parent="Hud/HudContainer/BossLifeContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect6" type="TextureRect" parent="Hud/HudContainer/BossLifeContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect7" type="TextureRect" parent="Hud/HudContainer/BossLifeContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")
+
+[node name="TextureRect8" type="TextureRect" parent="Hud/HudContainer/BossLifeContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_hljc8")

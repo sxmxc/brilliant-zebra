@@ -1,0 +1,94 @@
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://dfg03umfptpp8"]
+
+[ext_resource type="Texture2D" uid="uid://bjmrdh8y1wsls" path="res://assets/trippy-bit-button-sheet.png" id="1_tikva"]
+[ext_resource type="FontFile" uid="uid://dfa4ampapqv1y" path="res://assets/fonts/Altered Chrome.ttf" id="2_2kqir"]
+[ext_resource type="Texture2D" uid="uid://d0lbu2hhsbap4" path="res://assets/images/trippy_bit_titlescreen_button_sheet.png" id="2_w823v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2sbfu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc5ti"]
+atlas = ExtResource("1_tikva")
+region = Rect2(44, 1, 44, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxvpy"]
+texture = SubResource("AtlasTexture_wc5ti")
+texture_margin_left = 3.0
+texture_margin_top = 2.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_615q4"]
+atlas = ExtResource("1_tikva")
+region = Rect2(0, 1, 44, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ybfy6"]
+texture = SubResource("AtlasTexture_615q4")
+texture_margin_left = 3.0
+texture_margin_top = 2.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id1rh"]
+atlas = ExtResource("1_tikva")
+region = Rect2(88, 1, 44, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y5o72"]
+content_margin_left = 3.0
+texture = SubResource("AtlasTexture_id1rh")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 44, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhlij"]
+atlas = ExtResource("2_w823v")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2lmnn"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = SubResource("AtlasTexture_yhlij")
+texture_margin_left = 7.0
+texture_margin_top = 2.0
+texture_margin_right = 7.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 1, 48, 13)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o1hy4"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ippof"]
+atlas = ExtResource("2_w823v")
+region = Rect2(48, 1, 48, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jlif"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = SubResource("AtlasTexture_ippof")
+texture_margin_left = 9.0
+texture_margin_top = 2.0
+texture_margin_right = 9.0
+texture_margin_bottom = 2.0
+
+[resource]
+default_base_scale = 1.0
+default_font = ExtResource("2_2kqir")
+default_font_size = 8
+Button/colors/font_color = Color(0.611765, 0.811765, 0.384314, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_2sbfu")
+Button/styles/hover = SubResource("StyleBoxTexture_fxvpy")
+Button/styles/normal = SubResource("StyleBoxTexture_ybfy6")
+Button/styles/pressed = SubResource("StyleBoxTexture_y5o72")
+MainMenuButton/base_type = &"Button"
+MainMenuButton/colors/font_focus_color = Color(0.611765, 0.811765, 0.384314, 1)
+MainMenuButton/styles/hover = SubResource("StyleBoxTexture_2lmnn")
+MainMenuButton/styles/normal = SubResource("StyleBoxEmpty_o1hy4")
+MainMenuButton/styles/pressed = SubResource("StyleBoxTexture_7jlif")

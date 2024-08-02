@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu47c37wvka8b"]
+
+[ext_resource type="Script" path="res://levels/environment/MovingPlatform.gd" id="1_sikkn"]
+[ext_resource type="Texture2D" uid="uid://gc15ltt6necu" path="res://levels/ldtk/forest_of_shining_hues/tileset_beedlejoose.png" id="2_nrtxx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_of2or"]
+bounce = 0.33
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktnn7"]
+size = Vector2(112, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8avj"]
+atlas = ExtResource("2_nrtxx")
+region = Rect2(0, 48, 48, 16)
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_of2or")
+script = ExtResource("1_sikkn")
+max_height = 54
+speed = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(56, 8)
+shape = SubResource("RectangleShape2D_ktnn7")
+one_way_collision = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 112.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_q8avj")
+patch_margin_left = 7
+patch_margin_right = 7
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2

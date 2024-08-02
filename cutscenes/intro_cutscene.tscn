@@ -1,0 +1,200 @@
+[gd_scene load_steps=12 format=3 uid="uid://dplwgrp2koq4y"]
+
+[ext_resource type="Script" path="res://cutscenes/intro_cutscene.gd" id="1_ld88v"]
+[ext_resource type="Texture2D" uid="uid://bgwbyeywjn3uu" path="res://levels/ldtk/forest_of_shining_hues/background/background-grad.png" id="2_4vdyf"]
+[ext_resource type="Texture2D" uid="uid://b0qo6dikisc3t" path="res://levels/ldtk/forest_of_shining_hues/background/stars-1.png" id="3_7y3o1"]
+[ext_resource type="Texture2D" uid="uid://dinxkiymjumyw" path="res://levels/ldtk/forest_of_shining_hues/background/stars-2.png" id="4_kx50j"]
+[ext_resource type="Texture2D" uid="uid://dhgj5pa5he0sh" path="res://levels/ldtk/forest_of_shining_hues/background/trees-far.png" id="5_6hefr"]
+[ext_resource type="Texture2D" uid="uid://dg0oa53gr5yh0" path="res://levels/ldtk/forest_of_shining_hues/background/trees-mid.png" id="6_g6py4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5pti5"]
+size = Vector2(128, 128)
+
+[sub_resource type="Animation" id="Animation_8rh53"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0627451, 0.0392157, 0.0941176, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SceneAction/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0627451, 0.0392157, 0.0941176, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SceneAction:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_n1rkj"]
+resource_name = "action_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneAction/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0627451, 0.0392157, 0.0941176, 1), Color(0.063, 0.039, 0.094, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_us7sk"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0627451, 0.0392157, 0.0941176, 1), Color(0.063, 0.039, 0.094, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SceneAction:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aei0t"]
+_data = {
+"RESET": SubResource("Animation_8rh53"),
+"action_fade_in": SubResource("Animation_n1rkj"),
+"fade_in": SubResource("Animation_us7sk")
+}
+
+[node name="IntroCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ld88v")
+
+[node name="ParallaxBG" type="Node2D" parent="."]
+use_parent_material = true
+
+[node name="Background" type="Parallax2D" parent="ParallaxBG"]
+use_parent_material = true
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBG/Background"]
+use_parent_material = true
+texture = ExtResource("2_4vdyf")
+centered = false
+
+[node name="Stars" type="Parallax2D" parent="ParallaxBG"]
+use_parent_material = true
+scroll_scale = Vector2(0.25, 0.25)
+repeat_size = Vector2(640, 0)
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBG/Stars"]
+use_parent_material = true
+texture = ExtResource("3_7y3o1")
+centered = false
+
+[node name="Stars2" type="Parallax2D" parent="ParallaxBG"]
+use_parent_material = true
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBG/Stars2"]
+use_parent_material = true
+texture = ExtResource("4_kx50j")
+centered = false
+
+[node name="TreesFar" type="Parallax2D" parent="ParallaxBG"]
+use_parent_material = true
+scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBG/TreesFar"]
+use_parent_material = true
+texture = ExtResource("5_6hefr")
+centered = false
+
+[node name="TreesMid" type="Parallax2D" parent="ParallaxBG"]
+use_parent_material = true
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBG/TreesMid"]
+use_parent_material = true
+texture = ExtResource("6_g6py4")
+centered = false
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0392157, 0.0941176, 1)
+
+[node name="SceneAction" type="TextureRect" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -154.0
+offset_right = 90.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_5pti5")
+
+[node name="ColorRect" type="ColorRect" parent="SceneAction"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0392157, 0.0941176, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aei0t")
+}
